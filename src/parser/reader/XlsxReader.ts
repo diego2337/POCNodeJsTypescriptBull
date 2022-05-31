@@ -1,4 +1,5 @@
 import { ReaderInterface } from "../../interfaces/ReaderInterface";
+import { SheetDataToCourseMapper } from "../mapper/sheet-data-to-course.mapper";
 import { Course } from "../types/course.type";
 import { Worksheet } from "./Xlsx/Worksheet";
 
@@ -6,7 +7,7 @@ export class XlsxReader implements ReaderInterface {
     worksheet: Worksheet;
 
     constructor() {
-        this.worksheet = new Worksheet(__dirname + "../../../../files/");
+        this.worksheet = new Worksheet("files/");
     }
 
     parse(fileName: string): string {
@@ -18,9 +19,10 @@ export class XlsxReader implements ReaderInterface {
             console.log("Read lines in sheet");
             for(var row in sheetData){
                 // TODO - Map sheet headers to "Course" type
-                let course = (sheetData[row] as Course);
-                console.log(sheetData[row]);
-                // console.log(`Linha ${row}: `, course.courseName, course.active, course.courseTotalPrice);
+                // let course = (sheetData[row] as Course);
+                let course = SheetDataToCourseMapper.map(sheetData[row]);
+                // console.log(sheetData[row]);
+                console.log(`Linha ${row}: `, course.courseName, course.active, course.courseTotalPrice, course.modalType);
             }
             console.log("Finished reading lines in sheet");
         }
