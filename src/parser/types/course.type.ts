@@ -1,6 +1,7 @@
 export type Course = {
     courseType: string;
     institution: string;
+    institutionId: number;
     campus: string;
     campusId: number;
     courseName: string;
@@ -18,5 +19,5 @@ export type Course = {
     pravalerProductId?: number;
     institutionCourseId?: number;
     enrollment?: string;
-    error?: string;
+    modalType: number;
 };
