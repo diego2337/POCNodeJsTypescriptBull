@@ -1,3 +1,3 @@
 export interface ReaderInterface {
-    parse(fileName: string): string;
+    parse(fileName: string): NodeJS.ReadWriteStream;
 }

@@ -20,7 +20,7 @@ class App {
     }
 
     private initializeControllers() {
-        this.app.use('/', new ParserController(new ParserService()).router);
+        this.app.use('/', new ParserController(new ParserService("papaparse")).router);
     }
 
     public listen() {
