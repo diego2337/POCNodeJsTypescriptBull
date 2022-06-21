@@ -3,7 +3,7 @@ import { SheetDataToCourseMapper } from "../mapper/sheet-data-to-course.mapper";
 import { Course } from "../types/course.type";
 import { Worksheet } from "./Xlsx/Worksheet";
 
-export class XlsxReader implements ReaderInterface {
+export class XlsxReader {
     worksheet: Worksheet;
 
     constructor() {

@@ -1,8 +1,9 @@
 import { ReaderInterface } from "../../interfaces/ReaderInterface";
+import papa from "papaparse";
 
 export class PapaparseReader implements ReaderInterface {
-    parse(fileName: string): string {
-        throw new Error("Method not implemented.");
+    parse(fileName: string): NodeJS.ReadWriteStream {
+        return papa.parse(papa.NODE_STREAM_INPUT, {});
     }
 
 }
